@@ -2,5 +2,5 @@ theme: jekyll-theme-slate
 gem "github-pages", group: :jekyll_plugins
 
 title: "Mocho"
-description: "Canal de distribución para Mocho - BPComunicaciones"
+description: "Canal de distribución para Mocho - DJackPhone"
 show_downloads: "true"

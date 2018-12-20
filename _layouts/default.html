@@ -7,9 +7,21 @@
     <meta name="viewport" content="width=device-width,maximum-scale=2">
     <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <style>
+      <style>
       .imgwrapper{
           width: 24%;   
           margin: 0 auto;
+      }
+      .flex{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn{
+        text-decoration: none;
+        padding: 10px;
+        background: white;
+        border-radius: 4px;
       }
       .awrapper{
             text-align: center;
@@ -17,9 +29,84 @@
             position: relative;
             margin-left: 1rem;
           }
+      .center{
+        text-align: center;
+      }
       .play-img{
           width:100%;
       }
+     .buttonDownload {
+        display: inline-block;
+        position: relative;
+        padding: 10px 25px;
+        border-radius: 4px;
+        background-color: #3a5499;
+        color: white;
+        font-family: sans-serif;
+        text-decoration: none;
+        font-size: 0.9em;
+        text-align: center;
+        text-indent: 15px;
+      }
+      .buttonDownload:hover {
+        background-color: #333;
+        color: white;
+        text-decoration: none !important;
+      }
+      .buttonDownload:before, .buttonDownload:after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 15px;
+        top: 52%;
+      }
+      /* Download box shape  */
+      .buttonDownload:before {
+        width: 10px;
+        height: 2px;
+        border-style: solid;
+        border-width: 0 2px 2px;
+      }
+      /* Download arrow shape */
+      .buttonDownload:after {
+        width: 0;
+        height: 0;
+        margin-left: 3px;
+        margin-top: -7px;
+        border-style: solid;
+        border-width: 4px 4px 0 4px;
+        border-color: transparent;
+        border-top-color: inherit;
+        animation: downloadArrow 2s linear infinite;
+        animation-play-state: paused;
+      }
+      .buttonDownload:hover:before {
+        border-color: #4CC713;
+      }
+      .buttonDownload:hover:after {
+        border-top-color: #4CC713;
+        animation-play-state: running;
+      }
+      /* keyframes for the download icon anim */
+      @keyframes downloadArrow {
+        /* 0% and 0.001% keyframes used as a hackish way of having the button frozen on a nice looking frame by default */
+        0% {
+          margin-top: -7px;
+          opacity: 1;
+        }
+        0.001% {
+          margin-top: -15px;
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          margin-top: 0;
+          opacity: 0;
+        }
+      }
+    </style>
     </style>
 {% seo %}
   </head>
@@ -41,7 +128,7 @@
 
           {% if site.show_downloads %}
             <section id="downloads">
-              <a class="exe_download_link" id="setup-download" href="{{ site.github.zip_url }}">Descarga la última versión</a>
+              <a class="buttonDownload" id="setup-download" href="{{ site.github.zip_url }}">Descarga la última versión</a>
               
             </section>
           {% endif %}
